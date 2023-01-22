@@ -35,13 +35,16 @@ void add(stack_t **stack, unsigned int line_number)
  */
 void sub(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = *stack;                     int len, result;
+	stack_t *temp = *stack;
+	int len, result;
 
-	for(len = 0; temp != NULL; len++)
-		temp = temp->next;                                                              if (stack == NULL || (*stack) == NULL || len < 2)
-		{
-			fprintf(stderr, "L%d: can't sub, stack too short", line_number);                        exit(EXIT_FAILURE);
-		}
+	for (len = 0; temp != NULL; len++)
+		temp = temp->next;
+	if (stack == NULL || (*stack) == NULL || len < 2)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short", line_number);
+		exit(EXIT_FAILURE);
+	}
 	result = (*stack)->next->n - (*stack)->n;
 	temp->next->n = result;
 	(*stack) = temp->next;

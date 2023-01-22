@@ -8,7 +8,7 @@
 * @line_number: line number
 * Return: Always 1 (Success) or stderr
 **/
-int find_opcode(stack_t **stack, char *opcode, int line_number)
+int find_opcode(stack_t **stack, char *opcode, unsigned int line_number)
 {
 instruction_t opcodes[] = {
 {"pall", pall},
