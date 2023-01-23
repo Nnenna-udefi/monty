@@ -32,7 +32,9 @@ void mod(stack_t **stack, unsigned int line_number)
  */
 void pchar(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = *stack;
+	stack_t *temp;
+
+	temp = *stack;
 
 	if (temp == NULL)
 	{
@@ -56,14 +58,16 @@ void pchar(stack_t **stack, unsigned int line_number)
 void pstr(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
-	stack_t *temp = *stack;
+	stack_t *tmp;
 
-	while (temp)
+	tmp = *stack;
+
+	while (tmp)
 	{
-		if (temp->n > 127 || temp->n <= 0)
+		if (tmp->n > 127 || tmp->n <= 0)
 			break;
-		printf("%c\n", temp->n);
-		temp = temp->next;
+		printf("%c\n", tmp->n);
+		tmp = tmp->next;
 	}
 	printf("\n");
 }
@@ -102,7 +106,9 @@ void rotl(stack_t **stack, unsigned int line_number)
 void rotr(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
-	stack_t *temp = *stack;
+	stack_t *temp;
+
+	temp = *stack;
 
 	if (!temp || !temp->next)
 		return;

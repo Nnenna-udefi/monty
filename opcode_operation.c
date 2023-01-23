@@ -53,11 +53,11 @@ void sub(stack_t **stack, unsigned int line_number)
 
 
 /**
- * div - divides the next element by the top element in dll
+ * _div - divides the next element by the top element in dll
  * @stack: head of dll
  * @line_number: line number
  */
-void div(stack_t **stack, unsigned int line_number)
+void _div(stack_t **stack, unsigned int line_number)
 {
 	int result;
 
@@ -66,7 +66,7 @@ void div(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		fclose(buf.file);
 		free(buf.command);
-		free_dlist(*stack);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -75,7 +75,7 @@ void div(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: division by zero\n", line_number);
 		fclose(buf.file);
 		free(buf.command);
-		free_dlist(*stack);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	result = (*stack)->n;
@@ -98,7 +98,7 @@ void mul(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		fclose(buf.file);
 		free(buf.command);
-		free_dlist(*stack);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	tmp = (*stack)->n;
@@ -107,11 +107,11 @@ void mul(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * mod - find the modulus of the top and next element in a dll
+ * _mod - find the modulus of the top and next element in a dll
  * @stack: head of dll
  * @line_number: line number
  */
-void mod(stack_t **stack, unsigned int line_number)
+void _mod(stack_t **stack, unsigned int line_number)
 {
 	int result;
 

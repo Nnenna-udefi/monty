@@ -5,10 +5,11 @@
  * @stack: double pointer
  * @line_number: number of lines in the file
  */
-void stack(stack_t **stack, unsigned int line_number)
+void _stack(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
+
 	buf.flag = 0;
 }
 
@@ -17,9 +18,10 @@ void stack(stack_t **stack, unsigned int line_number)
  * @stack: double pointer
  * @line_number: number of lines in the file
  */
-void queue(stack_t **stack, unsigned int line_number)
+void _queue(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
+
 	buf.flag = 1;
 }
