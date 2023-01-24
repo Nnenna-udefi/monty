@@ -64,8 +64,8 @@ void _div(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
-		fclose(buf.file);
-		free(buf.command);
+		fclose(buf.mf);
+		free(buf.buff);
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
@@ -73,8 +73,8 @@ void _div(stack_t **stack, unsigned int line_number)
 	if ((*stack)->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_number);
-		fclose(buf.file);
-		free(buf.command);
+		fclose(buf.mf);
+		free(buf.buff);
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
@@ -96,8 +96,8 @@ void mul(stack_t **stack, unsigned int line_number)
 	if ((*stack) == NULL || (*stack)->next == NULL || len(stack) < 2)
 	{
 		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
-		fclose(buf.file);
-		free(buf.command);
+		fclose(buf.mf);
+		free(buf.buff);
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}

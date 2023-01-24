@@ -59,7 +59,8 @@ instruction_t opcodes[] = {
 int main(__attribute__((unused)) int argc, char const *argv[])
 {
 	FILE *mf;
-	char *buff = NULL, *opcode, *n;
+	string buff;
+	char *opcode, *n;
 	size_t i = 0;
 	ssize_t readl = 1;
 	unsigned int line_number = 0;
@@ -71,17 +72,18 @@ int main(__attribute__((unused)) int argc, char const *argv[])
 		return (EXIT_FAILURE);
 	}
 	mf = fopen(argv[1], "r");
-	buf.mf = file;
+	buf.mf = mf;
 	
-	if (!file)
+	if (!mf)
 	{
 		fprintf(stderr, "Error: can't open file %s\n", argv[1]);
 		exit(1);
 	}
 	while (readl > 0)
 	{
-		readl = getline(&buff, &lol, mf);
-		buf.buff = command;
+		buff = NULL;
+		readl = getline(&buff, &i, mf);
+		buf.buff = buff;
 		line_number++;
 		opcode = strtok(buff, DELIMATOR);
 		if (opcode == NULL || opcode[0] == '#')

@@ -41,19 +41,20 @@ typedef struct instruction_s
 /**
  * struct buf_obj - buffer object
  * @arg: parsed args
- * @file: monty file pointer
- * @command: line commands
+ * @mf: monty file pointer
+ * @buff: line commands
  * @flag: arg flag
  * Description: parameters object
  */
 typedef struct buf_obj
 {
 	char *arg;
-	FILE *file;
-	char *command;
+	FILE *mf;
+	char *buff;
 	int flag;
 } buf_obj;
 
+typedef char *string;
 extern buf_obj buf;
 extern instruction_t opcodes[];
 unsigned int len(stack_t **stack);
@@ -77,7 +78,7 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
-void _queue(stack_t **stack, unsigned int line_number)
+void _queue(stack_t **stack, unsigned int line_number);
 void _stack(stack_t **stack, unsigned int line_number);
 
 #endif
