@@ -60,7 +60,7 @@ int main(__attribute__((unused)) int argc, char const *argv[])
 {
 	FILE *mf;
 	string buff;
-	char *opcode, *n;
+	char *opcode;
 	size_t i = 0;
 	ssize_t readl = 1;
 	unsigned int line_number = 0;
@@ -92,7 +92,7 @@ int main(__attribute__((unused)) int argc, char const *argv[])
 			continue;
 		else if (!strcmp(opcode, "push"))
 		{
-			n = strtok(NULL, DELIMATOR);
+			opcode = strtok(NULL, DELIMATOR);
 			push(&stack, line_number);
 		}
 		else

@@ -43,7 +43,7 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new = NULL;
 	int i;
-	char *n;
+	char *n = malloc(sizeof(char));
 
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
