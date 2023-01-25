@@ -5,7 +5,4 @@
 buf_obj buf = {NULL, NULL, NULL, 0};
 
 
-
-
 #endif
-

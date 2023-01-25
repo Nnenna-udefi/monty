@@ -2,6 +2,7 @@
 #define MONTY_H
 #define _GNU_SOURCE
 
+#include <sys/stat.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -56,8 +57,8 @@ typedef struct buf_obj
 	int flag;
 } buf_obj;
 
-typedef char *string;
 extern buf_obj buf;
+typedef char *string;
 extern instruction_t opcodes[];
 unsigned int len(stack_t **stack);
 void free_stack(stack_t *stack);

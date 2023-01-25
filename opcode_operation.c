@@ -1,4 +1,5 @@
 #include "monty.h"
+buf_obj buf;
 
 /**
  * add - opcode add adds the top two elements of the stack
