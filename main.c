@@ -3,7 +3,7 @@
 
 
 /**
-* opcode_finder - find opcode
+* find_opcode - find opcode
 * @stack: stack pointer
 * @opcode: user input opcode
 * @line_number: line number
@@ -60,13 +60,13 @@ instruction_t opcodes[] = {
 int main(__attribute__((unused)) int argc, char const *argv[])
 {
 	FILE *mf;
-	string buff;
+	string buff = NULL;
 	char *opcode;
 	size_t i = 0;
 	ssize_t readl = 1;
 	unsigned int line_number = 0;
 	stack_t *stack = NULL, *current;
-	
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -74,7 +74,6 @@ int main(__attribute__((unused)) int argc, char const *argv[])
 	}
 	mf = fopen(argv[1], "r");
 	buf.mf = mf;
-	
 	if (!mf)
 	{
 		fprintf(stderr, "Error: can't open file %s\n", argv[1]);
@@ -82,7 +81,6 @@ int main(__attribute__((unused)) int argc, char const *argv[])
 	}
 	while (readl > 0)
 	{
-		buff = NULL;
 		readl = getline(&buff, &i, mf);
 		buf.buff = buff;
 		line_number++;
@@ -95,8 +93,7 @@ int main(__attribute__((unused)) int argc, char const *argv[])
 		{
 			opcode = strtok(NULL, DELIMATOR);
 			push(&stack, line_number);
-		}
-		else
+		} else
 			find_opcode(&stack, opcode, line_number);
 	}
 	fclose(mf);
