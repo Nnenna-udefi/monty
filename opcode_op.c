@@ -36,8 +36,7 @@ void pall(stack_t **stack, unsigned int __attribute__((unused)) line_number)
 /**
  * push - pushes an element to the stack
  * @stack: double pointer to the doubly liked list
- * @n: integer
- * @line: line where there is an error
+ * @line_number: line where there is an error
  */
 void push(stack_t **stack, unsigned int line_number)
 {
